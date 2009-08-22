@@ -1,6 +1,6 @@
 %define name mcs
 %define version 0.7.1
-%define release %mkrel 3
+%define release %mkrel 4
 %define oname libmcs
 
 %define major 1
@@ -19,7 +19,6 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url: http://www.atheme.org/projects/mcs.shtml
 BuildRequires: libmowgli-devel
 BuildRequires: libGConf2-devel
-BuildRequires: kdelibs-devel
 
 %description
 mcs is a library and set of userland tools which abstract the storage
@@ -69,23 +68,6 @@ unlike those projects, mcs strictly handles abstraction. It does not
 impose any specific data storage requirement, nor is it tied to any
 desktop environment or software suite.
 
-%package kconfig
-Group: System/Libraries
-Summary: Modular Config System - KDE kconfig backend
-Requires: %name = %version
-
-%description kconfig
-mcs is a library and set of userland tools which abstract the storage
-of configuration settings away from userland applications.
-
-It is hoped that by using mcs, that the applications which use it will
-generally have a more congruent feeling in regards to settings.
-
-There have been other projects like this before (such as GConf), but
-unlike those projects, mcs strictly handles abstraction. It does not
-impose any specific data storage requirement, nor is it tied to any
-desktop environment or software suite.
-
 %package gconf
 Group: System/Libraries
 Summary: Modular Config System - GConf backend
@@ -108,8 +90,7 @@ desktop environment or software suite.
 %patch -p1 -b .linking
 
 %build
-export LDFLAGS="$LDFLAGS -L/opt/kde3/%_lib"
-%configure2_5x --with-kde-path=/opt/kde3 --with-qt-path=%_prefix/lib/qt3
+%configure2_5x --disable-kconfig
 %make
 
 %install
@@ -118,8 +99,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %libname -p /sbin/ldconfig
 %endif
 
@@ -132,10 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/mcs-*
 %dir %_libdir/mcs/
 %_libdir/mcs/keyfile.so
-
-%files kconfig
-%defattr(-,root,root)
-%_libdir/mcs/kconfig.so
 
 %files gconf
 %defattr(-,root,root)
