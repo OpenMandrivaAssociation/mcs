@@ -1,6 +1,6 @@
 %define name mcs
 %define version 0.7.2
-%define release %mkrel 1
+%define release %mkrel 2
 %define oname libmcs
 
 %define major 1
