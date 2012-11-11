@@ -1,0 +1,18 @@
+diff -p -up libmcs-0.7.1/src/backends/gconf/Makefile.linking libmcs-0.7.1/src/backends/gconf/Makefile
+--- libmcs-0.7.1/src/backends/gconf/Makefile.linking	2008-04-21 00:05:48.000000000 +0200
++++ libmcs-0.7.1/src/backends/gconf/Makefile	2008-06-12 10:02:40.000000000 +0200
+@@ -6,4 +6,4 @@ include ../../../extra.mk
+ 
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} -I../.. -DPLUGIN_DIR=\"${libdir}/mcs\" ${GCONF_CFLAGS}
+ CFLAGS += ${PLUGIN_CFLAGS}
+-LIBS += -L../../libmcs -lmcs ${MOWGLI_LIBS} ${GCONF_LIBS}
++LIBS += -L../../libmcs -lmcs ${MOWGLI_LIBS} ${GCONF_LIBS} -lgobject-2.0
+diff -p -up libmcs-0.7.1/src/backends/kconfig/Makefile.linking libmcs-0.7.1/src/backends/kconfig/Makefile
+--- libmcs-0.7.1/src/backends/kconfig/Makefile.linking	2008-04-21 00:05:48.000000000 +0200
++++ libmcs-0.7.1/src/backends/kconfig/Makefile	2008-06-12 10:03:17.000000000 +0200
+@@ -6,4 +6,4 @@ include ../../../extra.mk
+ 
+ CPPFLAGS +=  ${MOWGLI_CFLAGS} -I../.. -DPLUGIN_DIR=\"${libdir}/mcs\" ${PLUGIN_CPPFLAGS} ${CXXFLAGS}
+ CXXFLAGS += ${PLUGIN_CFLAGS} ${KCONFIG_FLAGS}
+-LIBS += -L../../libmcs -lmcs -lkdecore ${MOWGLI_LIBS} ${KCONFIG_LIBS}
++LIBS += -L../../libmcs -lmcs -lkdecore ${MOWGLI_LIBS} ${KCONFIG_LIBS} -lstdc++ -lqt-mt
