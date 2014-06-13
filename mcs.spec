@@ -6,7 +6,7 @@
 Summary:	Modular Config System
 Name:		mcs
 Version:	0.7.2
-Release:	7
+Release:	8
 License:	BSD
 Group:		System/Libraries
 Url:		http://www.atheme.org/projects/mcs.shtml
