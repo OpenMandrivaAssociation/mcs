@@ -54,7 +54,7 @@ The GConf module for %{name}.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x --disable-kconfig
