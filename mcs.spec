@@ -9,7 +9,7 @@ Version:	0.7.2
 Release:	9
 License:	BSD
 Group:		System/Libraries
-Url:		http://www.atheme.org/projects/mcs.shtml
+Url:		https://www.atheme.org/projects/mcs.shtml
 Source0:	http://distfiles.atheme.org/%{oname}-%{version}.tbz2
 Patch0:		libmcs-0.7.1-linking.patch
 BuildRequires:	pkgconfig(gconf-2.0)
