@@ -12,6 +12,11 @@ Group:		System/Libraries
 Url:		https://www.atheme.org/projects/mcs.shtml
 Source0:	http://distfiles.atheme.org/%{oname}-%{version}.tbz2
 Patch0:		libmcs-0.7.1-linking.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(libmowgli)
 
